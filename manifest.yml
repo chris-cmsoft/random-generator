@@ -1,0 +1,25 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: random-generator
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: random-generator-deployment
+  namespace: random-generator
+  labels:
+    app: random-generator
+spec:
+  selector:
+    matchLabels:
+      app: random-generator
+  template:
+    metadata:
+      labels:
+        app: random-generator
+    spec:
+      containers:
+      - name: random-generator
+        imagePullPolicy: Always
+        image: chriscmsoft/random-generator:latest
