@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: grafana
+  namespace: monitoring
+  labels:
+    app: grafana
+spec:
+  selector:
+    app: grafana
+  ports:
+    - port: 3000
+      name: ui
